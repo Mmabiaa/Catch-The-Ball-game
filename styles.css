@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    font-family: Arial, sans-serif;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+#startScreen {
+    text-align: center;
+    color: #fff;
+}
+
+#startScreen input, #startScreen button {
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#gameArea {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #000;
+    overflow: hidden;
+}
+
+#score, #highScore, #pauseButton {
+    position: absolute;
+    top: 10px;
+    font-size: 24px;
+    color: #000;
+}
+
+#score {
+    left: 10px;
+}
+
+#highScore {
+    right: 10px;
+}
+
+#pauseButton {
+    top: 40px;
+    left: 10px;
+    cursor: pointer;
+}
+
+#paddle {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    width: 100px;
+    height: 20px;
+    background-color: #000;
+    transform: translateX(-50%);
+    transition: transform 0.1s;
+}
+
+#ball {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: #f00;
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+.hidden {
+    display: none;
+}
+
+#gameOverMessage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    color: red;
+    text-align: center;
+}
+
+#startMessage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    color: green;
+    text-align: center;
+    animation: fadeIn 2s forwards, moveUp 3s forwards;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes moveUp {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    100% { transform: translate(-50%, -100%) scale(1.5); }
+}
